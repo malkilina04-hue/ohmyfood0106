@@ -1,0 +1,114 @@
+/* Header*/
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    background-color: white;
+    padding-top: 1rem;
+
+&__logo {
+    height: 45px;
+    margin-bottom: 0.5rem;
+}
+}
+
+.location {
+    background-color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1rem;
+    width: 100%;
+    padding: 1rem 0;
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.1);
+
+    &__text {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: $text-main;
+    }
+
+
+
+i {
+    font-size: 1.1rem;
+}
+}
+
+/* Hero*/
+.hero {
+    text-align: center;
+    padding: 4rem 1.5rem 5rem;
+    background-color: $background-light;
+
+&__title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+&__subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color:$text-muted;
+}
+}
+
+
+/* Fonctionnement (Steps)*/
+.steps {
+    padding: 2rem 1rem;
+    background-color: white;
+
+
+.section-title {
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+&__cards {
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    padding-left: 0.75rem;
+}
+
+&__card {
+    display: flex;
+    align-items: center;
+    background-color: $background-light;
+    padding: 1.8rem;
+    border-radius: 1.25rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    gap: 1.5rem;
+    
+
+.step-number {
+    position: absolute;
+    left: -12px; /* position à l'exterieur de la carte*/
+    background: $primary-color;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+}
+
+.step-icon {
+    color: #7e7e7e;
+    font-size: 1.2rem; /*taille icone*/
+}
+
+p {
+    font-weight: 500;
+}
+}
+}
