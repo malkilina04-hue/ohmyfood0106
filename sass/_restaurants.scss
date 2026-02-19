@@ -80,55 +80,87 @@ img {
     }
 
     .menu-item {
-        background-color: white;
-        border-radius: 15px;
-        padding: 1rem;
-        padding-right: 1.5rem;
-        margin: 1rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        margin-top: 1rem;
+    background-color: white;
+    border-radius: 15px;
+    margin: 1rem 0;
+    display: flex;
+    overflow: hidden; // Cache le check qui dépasse
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    width: 100%;
+    height: 70px; // On force une hauteur pour que le flex stretch bien
 
-        .item-text {
+    .item-text {
+        padding: 1rem;
+        flex: 1;
+        min-width: 0; // Permet au texte de se réduire
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .dish-name, .dish-description {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            flex: 1;
-
-            .dish-name {
-                font-weight: bold;
-                margin-bottom: 0.3rem;
-            }
-
-            .dish-description {
-                font-size: 0.9rem;
-            }
+            margin: 0;
         }
 
-        .dish-price {
+        .dish-name {
             font-weight: bold;
-            padding-left: 0.5rem;
-            align-items: flex-end;
-            display: flex;
+            margin-bottom: 0.2rem;
         }
 
-
-        &__check {
-            background-color: #99E2D0;
-            margin-right: -4rem;
-            width: 4rem;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            flex-shrink: 0;
-            opacity: 0;
+        .dish-description {
+            font-size: 0.9rem;
         }
     }
+
+    .dish-price {
+        font-weight: bold;
+        padding: 1rem;
+        display: flex;
+        align-items: flex-end;
+        background: white;
+        transition: all 0.5s ease;
+    }
+
+    &__check {
+        background-color: #99E2D0;
+        margin-right: -4rem; // Caché par défaut
+        width: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: margin-right 0.5s ease;
+        flex-shrink: 0; // Empêche le bloc vert de rétrécir
+
+        i {
+            background: white;
+            color: #99E2D0;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transform: rotate(-180deg);
+            transition: transform 0.5s ease;
+        }
+    }
+
+    &:hover {
+        .menu-item__check {
+            margin-right: 0; // Le check glisse vers la gauche
+        }
+        
+        i {
+            transform: rotate(0); // L'icône tourne
+        }
+    }
+}
+
+
     
     /* Bouton Commander */
 .order-button {
@@ -176,6 +208,10 @@ li {
 }
 }
 }
+
+
+
+
 
 /* Media Queries */
 @media screen and (min-width: 768px) {
@@ -225,3 +261,59 @@ li {
         }
     }
 }
+
+/*animations coeur*/
+
+.menu-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+
+    &__heart {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        .fa-regular {
+            position: absolute;
+            z-index: 2;
+            font-size: 24px;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .fa-solid {
+            position: absolute;
+            z-index: 1;
+            font-size: 24px;
+            
+            /* LE FIX ICI : On définit le dégradé AVANT le clip */
+            background: linear-gradient(180deg, #9356DC, #FF79DA);
+            background-clip: text;
+            -webkit-background-clip: text;
+            
+            /* On met une couleur solide par défaut au cas où le dégradé échoue */
+            color: #9356DC; 
+            -webkit-text-fill-color: transparent;
+
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+            
+            /* Force l'icône à être pleine */
+            font-weight: 900;
+        }
+
+        &:hover {
+            .fa-regular {
+                opacity: 0;
+            }
+            .fa-solid {
+                opacity: 1;
+                /* Petit effet de scale pour confirmer que ça marche */
+                transform: scale(1.1); 
+            }
+        }
+    }
+}
+

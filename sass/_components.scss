@@ -15,3 +15,78 @@
 
     }
 }
+
+/*Animation coeur*/
+.restaurant-card {
+    position: relative;
+
+.card_icon {
+    position: absolute;
+    right: 25px;
+    bottom: 30px;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .fa-regular {
+        position: absolute;
+        z-index: 1;
+        color: #000;
+        font-size: 24px;
+        transition: opacity 0.3s ease;
+    }
+
+    .fa-solid {
+        position: absolute;
+        z-index: 2;
+        opacity: 0;
+        font-size: 24px;
+        
+        /* FORCE LE REMPLISSAGE  */
+        font-family: "Font Awesome 6 Free"; 
+        font-weight: 900 !important;       // FORCE le style plein (Solid)
+        display: inline-block;             
+        
+        /* dégradé  */
+        background-image: linear-gradient(180deg, #9356DC, #FF79DA);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+        .fa-solid {
+            opacity: 1;
+        }
+        .fa-regular {
+            opacity: 0;
+        }
+    }
+}
+}
+
+/*animation bouton*/
+
+.btn {
+    background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out; // Pour que l'ombre et la couleur changent doucement
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.1); // Le bouton s'éclaire
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); // L'ombre devient plus forte
+    }
+}
+
