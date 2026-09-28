@@ -298,19 +298,22 @@ img {
     margin: 0;
   }
 }
+/* Bouton */
 .btn {
   display: inline-block;
   padding: 15px 30px;
-  border-radius: 999px;
+  border-radius: 25px;
   color: white;
-  font-size: 1rem;
   font-weight: 500;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
 }
-.btn--primary {
-  background: linear-gradient(175deg, #FF79DA 0%, #9356DC 100%);
+.btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /*Animation coeur*/
@@ -342,7 +345,6 @@ img {
   opacity: 0;
   font-size: 24px;
   /* FORCE LE REMPLISSAGE  */
-  font-family: "Font Awesome 6 Free";
   font-weight: 900 !important;
   display: inline-block;
   /* dégradé  */
@@ -358,22 +360,6 @@ img {
 }
 .restaurant-card .card_icon:hover .fa-regular {
   opacity: 0;
-}
-
-/*animation bouton*/
-.btn {
-  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
-  color: white;
-  padding: 15px 30px;
-  border-radius: 25px;
-  border: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-}
-.btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
 }
 
 /* Header Restaurant */
@@ -624,11 +610,9 @@ img {
   position: absolute;
   z-index: 1;
   font-size: 24px;
-  /* LE FIX ICI : On définit le dégradé AVANT le clip */
   background: linear-gradient(180deg, #9356DC, #FF79DA);
   background-clip: text;
   -webkit-background-clip: text;
-  /* On met une couleur solide par défaut au cas où le dégradé échoue */
   color: #9356DC;
   -webkit-text-fill-color: transparent;
   opacity: 0;
@@ -641,7 +625,6 @@ img {
 }
 .menu-title__heart:hover .fa-solid {
   opacity: 1;
-  /* Petit effet de scale pour confirmer que ça marche */
   transform: scale(1.1);
 }
 

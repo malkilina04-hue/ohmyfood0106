@@ -1,18 +1,20 @@
-
+/* Bouton */
 .btn { 
     display: inline-block; 
     padding: 15px 30px;
-    border-radius: 999px;
+    border-radius: 25px;
     color: white;
-    font-size: 1rem;
     font-weight: 500;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-
-    &--primary {
-    background: linear-gradient(175deg, #FF79DA 0%, #9356DC 100%);
-
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out; // Pour que l'ombre et la couleur changent doucement
+/*Dégradé principal du design*/
+    background: linear-gradient(180deg,$secondary-color 0%, $primary-color 100%);
+    
+        &:hover {
+        filter: brightness(1.1); // Effet d'éclairage au survol
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); // L'ombre devient plus forte
     }
 }
 
@@ -20,7 +22,7 @@
 .restaurant-card {
     position: relative;
 
-.card_icon {
+    .card_icon {
     position: absolute;
     right: 25px;
     bottom: 30px;
@@ -31,15 +33,16 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
+/*Icone coeur vide*/
     .fa-regular {
         position: absolute;
         z-index: 1;
         color: #000;
         font-size: 24px;
+        /*Transition pour la disparition*/
         transition: opacity 0.3s ease;
     }
-
+/*Icone coeur plein*/
     .fa-solid {
         position: absolute;
         z-index: 2;
@@ -47,46 +50,28 @@
         font-size: 24px;
         
         /* FORCE LE REMPLISSAGE  */
-        font-family: "Font Awesome 6 Free"; 
-        font-weight: 900 !important;       // FORCE le style plein (Solid)
+        font-weight: 900 ;  // FORCE le style plein (Solid)
         display: inline-block;             
         
-        /* dégradé  */
+        /* dégradé appliqué au texte  */
         background-image: linear-gradient(180deg, #9356DC, #FF79DA);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         -webkit-text-fill-color: transparent;
         
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease;//transition pour apparition
     }
 
     &:hover {
+        /*Affichage du coeur plein*/
         .fa-solid {
             opacity: 1;
         }
+        /*Disparition du coeur vide*/
         .fa-regular {
             opacity: 0;
         }
     }
 }
 }
-
-/*animation bouton*/
-
-.btn {
-    background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 25px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out; // Pour que l'ombre et la couleur changent doucement
-    cursor: pointer;
-
-    &:hover {
-        filter: brightness(1.1); // Le bouton s'éclaire
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); // L'ombre devient plus forte
-    }
-}
-
