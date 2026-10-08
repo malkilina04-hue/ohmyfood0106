@@ -14,6 +14,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #F6F6F6;
 }
 
 img {
@@ -36,6 +37,7 @@ img {
   margin-bottom: 0.5rem;
 }
 
+/* Location*/
 .location {
   background-color: #EAEAEA;
   display: flex;
@@ -44,6 +46,7 @@ img {
   gap: 1.1rem;
   width: 100%;
   padding: 1rem 0;
+  /*Effet d'ombre intérieure*/
   box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 .location__text {
@@ -76,7 +79,7 @@ img {
 /* Fonctionnement (Steps)*/
 .steps {
   padding: 2rem 1rem;
-  background-color: white;
+  background-color: #F6F6F6;
 }
 .steps .section-title {
   margin-bottom: 1.5rem;
@@ -98,6 +101,7 @@ img {
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   gap: 1.5rem;
+  /*Numéro d'étape*/
 }
 .steps__card .step-number {
   position: absolute;
@@ -135,19 +139,6 @@ img {
 }
 
 /*CARTE INDIVIDUELLE*/
-.restaurants {
-  padding: 2rem 1rem;
-  background-color: #F6F6F6;
-}
-.restaurants .section-title {
-  margin-bottom: 1.5rem;
-}
-.restaurants .restaurants-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
 .restaurant-card {
   background-color: white;
   border-radius: 1rem;
@@ -168,6 +159,9 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.restaurant-card {
+  /*Badge "Nouveau"*/
+}
 .restaurant-card .badge-new {
   position: absolute;
   top: 1rem;
@@ -184,7 +178,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: #000000;
 }
 .restaurant-card .card-footer .card-text h3 {
   margin-bottom: 0.2rem;
@@ -204,7 +198,6 @@ img {
   font-size: 1.4rem;
   color: black;
   cursor: pointer;
-  font-weight: 400;
 }
 
 /* Footer*/
@@ -251,12 +244,6 @@ img {
   section.restaurants .restaurant-card {
     width: calc(50% - 1rem);
     display: block;
-  }
-  .restaurant-card img {
-    width: 100%;
-    height: 175px;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
   .steps {
     max-width: 1080px;
@@ -309,6 +296,7 @@ img {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+  /*Dégradé principal du design*/
   background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
 }
 .btn:hover {
@@ -331,23 +319,25 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  /*Icone coeur vide*/
 }
 .restaurant-card .card_icon .fa-regular {
   position: absolute;
-  z-index: 1;
-  color: #000;
+  color: #000000;
   font-size: 24px;
+  /*Transition pour la disparition*/
   transition: opacity 0.3s ease;
+}
+.restaurant-card .card_icon {
+  /*Icone coeur plein*/
 }
 .restaurant-card .card_icon .fa-solid {
   position: absolute;
-  z-index: 2;
   opacity: 0;
   font-size: 24px;
   /* FORCE LE REMPLISSAGE  */
-  font-weight: 900 !important;
-  display: inline-block;
-  /* dégradé  */
+  font-weight: 900;
+  /* dégradé appliqué au texte  */
   background-image: linear-gradient(180deg, #9356DC, #FF79DA);
   -webkit-background-clip: text;
   background-clip: text;
@@ -355,8 +345,14 @@ img {
   -webkit-text-fill-color: transparent;
   transition: opacity 0.3s ease;
 }
+.restaurant-card .card_icon:hover {
+  /*Affichage du coeur plein*/
+}
 .restaurant-card .card_icon:hover .fa-solid {
   opacity: 1;
+}
+.restaurant-card .card_icon:hover {
+  /*Disparition du coeur vide*/
 }
 .restaurant-card .card_icon:hover .fa-regular {
   opacity: 0;
@@ -372,7 +368,7 @@ img {
   position: relative;
 }
 .restaurant-header .back-link {
-  color: #000;
+  color: #000000;
   position: absolute;
   left: 1.5rem;
 }
@@ -390,7 +386,7 @@ img {
 
 /* Menu*/
 .restaurant-menu {
-  background: #f6f6f6;
+  background: #F6F6F6;
   border-radius: 30px 30px 0 0;
   padding: 2rem 1rem;
   margin-top: -40px;
@@ -406,24 +402,18 @@ img {
   font-size: 2rem;
   font-weight: 400;
 }
-.restaurant-menu .menu-title__heart {
-  position: relative;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  cursor: pointer;
-}
 
 .menu-section {
   margin-top: 2rem;
 }
-.menu-section h2, .menu-section h3 {
+.menu-section h2 {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1rem;
   position: relative;
   padding-bottom: 0.5rem;
 }
-.menu-section h2::after, .menu-section h3::after {
+.menu-section h2::after {
   content: "";
   position: absolute;
   left: 0;
@@ -589,9 +579,6 @@ img {
 }
 /*animations coeur*/
 .menu-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 2rem 1rem;
 }
 .menu-title__heart {
@@ -599,6 +586,7 @@ img {
   width: 30px;
   height: 30px;
   cursor: pointer;
+  margin-right: 1rem;
 }
 .menu-title__heart .fa-regular {
   position: absolute;
